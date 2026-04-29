@@ -1,0 +1,103 @@
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 16px;
+  position: relative;
+}
+
+.navbar-logo img { height: 36px; }
+.logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+}
+.logo-insure { color: var(--green-dark); }
+.logo-today  { color: var(--green-bright); }
+.logo-uk     { color: var(--yellow-btn); font-size: 14px; margin-left: 2px; }
+
+.navbar-sub {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+  margin-top: 2px;
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  letter-spacing: 0.3px;
+}
+
+.navbar-right { margin-left: auto; }
+
+.auth-links { display: flex; align-items: center; gap: 12px; }
+.nav-link { color: var(--green-dark); font-weight: 700; font-size: 14px; }
+.nav-register { padding: 8px 18px; font-size: 13px; }
+
+.user-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  transition: background 0.15s;
+}
+.user-btn:hover { background: var(--cream); }
+.user-btn svg { flex-shrink: 0; }
+
+.user-menu { position: relative; }
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  min-width: 200px;
+  overflow: hidden;
+  z-index: 300;
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dropdown-item:hover { background: var(--cream); }
+.dropdown-name { font-weight: 700; color: var(--green-dark); cursor: default; }
+.dropdown-name:hover { background: none; }
+.dropdown-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.logout { color: var(--red); }
+
+@media (max-width: 480px) {
+  .navbar-inner { padding: 0 14px; }
+  .nav-register { display: none; }
+}

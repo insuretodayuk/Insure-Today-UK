@@ -1,0 +1,86 @@
+.auth-page {
+  min-height: calc(100vh - 60px);
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-md);
+}
+
+.auth-logo { text-align: center; margin-bottom: 20px; }
+.auth-logo-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+}
+.logo-insure { color: var(--green-dark); }
+.logo-today  { color: var(--green-bright); }
+.logo-uk     { color: var(--yellow-btn); font-size: 16px; margin-left: 2px; }
+
+.auth-title { font-size: 22px; text-align: center; color: var(--text-dark); margin-bottom: 6px; }
+.auth-sub   { text-align: center; font-size: 14px; color: var(--text-mid); margin-bottom: 24px; }
+
+.auth-error {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  color: var(--red);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+
+.form-row { display: flex; gap: 14px; }
+.form-row .form-group { flex: 1; }
+
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.form-group input {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text-dark);
+  transition: border-color 0.15s;
+  outline: none;
+}
+.form-group input:focus { border-color: var(--green-main); box-shadow: 0 0 0 3px rgba(30,92,58,0.1); }
+.form-group input::placeholder { color: #bbb; }
+
+.auth-submit { padding: 14px; font-size: 16px; border-radius: var(--radius); width: 100%; margin-top: 4px; }
+.auth-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.auth-footer a { color: var(--green-main); font-weight: 700; }
+
+@media (max-width: 480px) {
+  .auth-card { padding: 24px 18px; }
+  .form-row { flex-direction: column; gap: 16px; }
+}

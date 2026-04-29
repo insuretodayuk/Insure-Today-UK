@@ -1,0 +1,131 @@
+.results-page { min-height: calc(100vh - 60px); background: var(--cream); }
+
+.mobile-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.mobile-edit-btn, .mobile-cover-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green-dark);
+  font-family: inherit;
+}
+
+.results-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  padding: 20px 16px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.results-main { flex: 1; min-width: 0; }
+
+.telematics-banner {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.telematics-banner svg { color: var(--green-main); flex-shrink: 0; }
+.telematics-banner span { flex: 1; }
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--green-dark);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.toggle-label input { accent-color: var(--green-main); width: 16px; height: 16px; }
+
+.results-count { margin-bottom: 12px; font-size: 14px; color: var(--text-mid); }
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 16px;
+  color: var(--text-mid);
+}
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--green-main);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile sidebar */
+.sidebar-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 150;
+}
+.mobile-sidebar-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+.mobile-sidebar-inner {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: min(85vw, 320px);
+  background: var(--white);
+  overflow-y: auto;
+  pointer-events: all;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+}
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 1;
+}
+.mobile-sidebar-header h3 { font-size: 16px; color: var(--green-dark); }
+.mobile-sidebar-header button {
+  background: none; border: none;
+  font-size: 18px; color: var(--text-mid); cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .results-layout { padding: 12px 10px; }
+  .sidebar { display: none; }
+}
