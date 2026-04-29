@@ -2,7 +2,7 @@ const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'insure-today-uk-secret-2026';
+const JWT_SECRET = process.env.JWT_SECRET ;
 
 const sign = (user) =>
   jwt.sign({ id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName }, JWT_SECRET, { expiresIn: '7d' });
