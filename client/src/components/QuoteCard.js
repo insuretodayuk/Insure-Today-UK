@@ -1,11 +1,13 @@
-import React from 'react';
-import './QuoteCard.css';
+import React from "react";
+import "./QuoteCard.css";
 
 function Stars({ count, total = 5 }) {
   return (
     <div className="stars">
       {Array.from({ length: total }).map((_, i) => (
-        <span key={i} className={`star ${i < count ? 'filled' : ''}`}>★</span>
+        <span key={i} className={`star ${i < count ? "filled" : ""}`}>
+          ★
+        </span>
       ))}
     </div>
   );
@@ -13,11 +15,26 @@ function Stars({ count, total = 5 }) {
 
 function FeatureIcon({ included, label }) {
   return (
-    <div className={`feature-col ${included ? 'included' : 'addon'}`}>
+    <div className={`feature-col ${included ? "included" : "addon"}`}>
       {included ? (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M20 6L9 17l-5-5"
+            stroke="currentColor"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       ) : (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 5v14M5 12h14"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
       )}
       <span>{label}</span>
     </div>
@@ -25,12 +42,14 @@ function FeatureIcon({ included, label }) {
 }
 
 export default function QuoteCard({ quote, onViewDetails }) {
-  const hasLegal = quote.covered.includes('Legal assistance') || quote.addons.includes('Legal assistance');
-  const legalIncluded = quote.covered.includes('Legal assistance');
-  const breakdownIncluded = quote.covered.includes('Breakdown cover');
-  const personalAccident = quote.covered.includes('Personal accident');
-  const courtesyCar = quote.covered.includes('Courtesy car');
-  const windscreen = quote.covered.includes('Windscreen cover');
+  const hasLegal =
+    quote.covered.includes("Legal assistance") ||
+    quote.addons.includes("Legal assistance");
+  const legalIncluded = quote.covered.includes("Legal assistance");
+  const breakdownIncluded = quote.covered.includes("Breakdown cover");
+  const personalAccident = quote.covered.includes("Personal accident");
+  const courtesyCar = quote.covered.includes("Courtesy car");
+  const windscreen = quote.covered.includes("Windscreen cover");
 
   return (
     <div className="quote-card">
@@ -38,8 +57,17 @@ export default function QuoteCard({ quote, onViewDetails }) {
         {/* Insurer info */}
         <div className="quote-insurer">
           <div className="insurer-logo">
-            <img src={quote.logo} alt={quote.insurer} onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-            <div className="logo-fallback" style={{display:'none'}}>{quote.insurer}</div>
+            <img
+              src={quote.logo}
+              alt={quote.insurer}
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.nextSibling.style.display = "flex";
+              }}
+            />
+            <div className="logo-fallback" style={{ display: "none" }}>
+              {quote.insurer}
+            </div>
           </div>
           <div className="insurer-tier">{quote.tier}</div>
           <Stars count={quote.rating} />
@@ -59,9 +87,18 @@ export default function QuoteCard({ quote, onViewDetails }) {
         <div className="quote-features-mobile hide-desktop">
           <div className="features-section">
             <div className="features-label">Covered</div>
-            {quote.covered.slice(0, 3).map(f => (
+            {quote.covered.slice(0, 3).map((f) => (
               <div key={f} className="feature-line included">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
                 {f}
               </div>
             ))}
@@ -69,9 +106,16 @@ export default function QuoteCard({ quote, onViewDetails }) {
           {quote.addons.length > 0 && (
             <div className="features-section">
               <div className="features-label">Add-ons</div>
-              {quote.addons.slice(0, 2).map(f => (
+              {quote.addons.slice(0, 2).map((f) => (
                 <div key={f} className="feature-line addon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 5v14M5 12h14"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
                   {f}
                 </div>
               ))}
@@ -84,21 +128,37 @@ export default function QuoteCard({ quote, onViewDetails }) {
           <div className="price-label">Annual Price</div>
           <div className="price-amount">
             <span className="price-symbol">£</span>
-            <span className="price-int">{Math.floor(quote.annualPrice).toLocaleString()}</span>
-            <span className="price-dec">.{(quote.annualPrice % 1).toFixed(2).slice(2)}</span>
+            <span className="price-int">
+              {Math.floor(quote.annualPrice).toLocaleString()}
+            </span>
+            <span className="price-dec">
+              .{(quote.annualPrice % 1).toFixed(2).slice(2)}
+            </span>
           </div>
           <div className="price-excess">Total excess: £{quote.totalExcess}</div>
         </div>
 
         {/* CTA */}
         <div className="quote-cta">
-          <button className="view-details-btn" onClick={onViewDetails}>View Details</button>
+          <button className="view-details-btn" onClick={onViewDetails}>
+            View Details
+          </button>
         </div>
       </div>
 
       {/* Info bar */}
       <div className="quote-info-bar">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4M12 8h.01" />
+        </svg>
         <strong>Info</strong>
         <span>{quote.info}</span>
       </div>

@@ -18,14 +18,15 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo">
-          <img src="/logos/insure-today-logo.png" alt="Insure Today UK" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
-          <span className="logo-text" style={{display:'none'}}>
+          <img src="/logos/insure-today-uk-logo.jpeg" alt="Insure Today UK" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
+          
+          <span className="logo-text">
             <span className="logo-insure">INSURE</span>
             <span className="logo-today">TODAY</span>
             <span className="logo-uk">UK</span>
           </span>
         </Link>
-        <div className="navbar-sub">car insurance</div>
+        {/* <div className="navbar-sub">car insurance</div> */}
 
         <div className="navbar-right">
           {user ? (

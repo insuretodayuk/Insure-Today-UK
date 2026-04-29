@@ -18,18 +18,35 @@
 }
 
 .navbar-logo img { height: 36px; }
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .logo-text {
   display: flex;
   align-items: baseline;
-  gap: 2px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900;
+  gap: 4px;
+  font-weight: 900; /* extra bold */
+  letter-spacing: 0.5px;
   font-size: 20px;
-  letter-spacing: -0.5px;
 }
-.logo-insure { color: var(--green-dark); }
-.logo-today  { color: var(--green-bright); }
-.logo-uk     { color: var(--yellow-btn); font-size: 14px; margin-left: 2px; }
+
+.logo-insure {
+  color: #0b5d3b; 
+  font-weight: 900;
+}
+
+.logo-today {
+  color: #000;
+  font-weight: 900;
+}
+
+.logo-uk {
+  color: #0b5d3b;
+  font-weight: 900;
+  font-size: 14px;
+}
 
 .navbar-sub {
   font-size: 12px;

@@ -135,7 +135,16 @@
   font-family: inherit;
   margin-bottom: 10px;
   cursor: not-allowed;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
 }
+.update-btn-active {
+  background: var(--green-dark) !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(26,71,49,0.25);
+}
+.update-btn-active:hover { background: var(--green-btn) !important; transform: translateY(-1px); }
+.addon-update-btn { margin-top: 10px; margin-bottom: 0; }
 .edit-all-btn {
   width: 100%;
   background: none;

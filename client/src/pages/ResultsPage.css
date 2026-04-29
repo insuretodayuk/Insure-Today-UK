@@ -40,7 +40,10 @@
   overflow-y: auto;
 }
 
-.results-main { flex: 1; min-width: 0; }
+.results-main { 
+  flex: 1; min-width: 0; 
+  padding-left: 16px;
+}
 
 .telematics-banner {
   background: var(--white);
@@ -69,6 +72,74 @@
 .toggle-label input { accent-color: var(--green-main); width: 16px; height: 16px; }
 
 .results-count { margin-bottom: 12px; font-size: 14px; color: var(--text-mid); }
+
+/* Filter chips */
+.filter-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.filter-chips-label { font-size: 12px; font-weight: 700; color: var(--text-mid); }
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--green-light);
+  border: 1px solid #a8d4bc;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.chip-remove {
+  background: none; border: none;
+  color: var(--green-main); font-size: 10px;
+  cursor: pointer; padding: 0 0 0 2px;
+  line-height: 1;
+}
+.clear-filters {
+  background: none; border: none;
+  color: var(--red); font-size: 12px; font-weight: 700;
+  cursor: pointer; margin-left: auto; font-family: inherit;
+  text-decoration: underline;
+}
+.clear-filters:hover { opacity: 0.8; }
+
+/* Filtering indicator */
+.filtering-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green-main);
+  font-weight: 600;
+}
+.mini-spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--green-main);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* No results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.no-results-icon { font-size: 48px; margin-bottom: 16px; }
+.no-results h3 { font-size: 18px; color: var(--text-dark); margin-bottom: 8px; }
+.no-results p  { font-size: 14px; color: var(--text-mid); }
 
 .loading-state {
   display: flex;
