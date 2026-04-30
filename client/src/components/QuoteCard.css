@@ -11,6 +11,7 @@
   align-items: center;
   gap: 12px;
   padding: 16px 16px 12px;
+  min-width: 0;
 }
 
 /* Insurer column */
@@ -59,13 +60,14 @@
   flex: 1;
   gap: 4px;
   justify-content: center;
+  min-width: 0;
 }
 .feature-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  min-width: 60px;
+  flex: 1;
   text-align: center;
 }
 .feature-col span {
@@ -79,7 +81,8 @@
 /* Price */
 .quote-price {
   text-align: right;
-  min-width: 140px;
+  min-width: 100px;
+  flex-shrink: 0;
 }
 .price-label { font-size: 11px; color: var(--text-mid); font-weight: 600; margin-bottom: 2px; }
 .price-amount {
@@ -150,6 +153,31 @@
 }
 
 @media (max-width: 480px) {
-  .quote-main { flex-direction: row; flex-wrap: wrap; }
+  .quote-main { flex-wrap: wrap; }
   .quote-insurer { min-width: 65px; }
+  .quote-features {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .quote-cta {
+    margin-left: auto;
+  }
 }
+
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .results-main {
+    padding-left: 0;
+  }
+
+  .results-layout {
+    flex-direction: column;
+  }
+}
+

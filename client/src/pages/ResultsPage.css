@@ -40,10 +40,7 @@
   overflow-y: auto;
 }
 
-.results-main { 
-  flex: 1; min-width: 0; 
-  padding-left: 16px;
-}
+.results-main { flex: 1; min-width: 0; }
 
 .telematics-banner {
   background: var(--white);
