@@ -18,13 +18,17 @@
 .info-btn {
   background: none;
   border: none;
-  color: var(--text-light);
+  color: var(--dark-green);
   font-size: 16px;
   cursor: pointer;
   padding: 2px;
+  font-weight: 700;
+
 }
 
-.sidebar-field { margin-bottom: 14px; }
+.sidebar-field { 
+  border-radius: 100%;
+}
 .sidebar-field label {
   display: block;
   font-size: 12px;
@@ -88,11 +92,11 @@
 .custom-option.selected { background: #1a4731; color: #fff; }
 
 /* Toggle groups */
-.toggle-group { display: flex; gap: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.toggle-group { display: flex; gap: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); margin-bottom:15px; }
 .toggle-btn {
   flex: 1;
   padding: 9px 10px;
-  border: none;
+  border: var(--green-dark);
   background: var(--white);
   font-size: 13px;
   font-weight: 600;
@@ -131,7 +135,7 @@
   border-radius: var(--radius);
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-mid);
+  color: white;
   font-family: inherit;
   margin-bottom: 10px;
   cursor: not-allowed;
@@ -181,8 +185,8 @@
 .addon-btn.addon-active { border-color: var(--green-main); background: var(--green-light); color: var(--green-dark); }
 .addon-icon {
   width: 20px; height: 20px;
-  border: 1.5px solid var(--border);
-  border-radius: 50%;
+  /* border: 1.5px solid var(--border);
+  border-radius: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,4 +234,33 @@
 
   padding: 6px 24px 6px 0;
   cursor: pointer;
+}
+
+.sidebar-protect-no-claims{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--green-dark);
+  background: var(--white);
+  color: var(--green-dark);
+  cursor: pointer;
+}
+
+.sidebar-protect-no-claims.active {
+  background: #c8d400;
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.protect-no-claims-group{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 20px;
 }

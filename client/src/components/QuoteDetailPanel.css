@@ -173,12 +173,12 @@
 .cover-group-label {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-mid);
+  color: var(--green-dark);
   text-transform: uppercase;
   letter-spacing: 0.3px;
   margin-bottom: 6px;
 }
-.cover-group-label.not-covered { color: var(--red); }
+.cover-group-label.not-covered { color: var(--green-dark); font-weight: 700;}
 
 .cover-item {
   display: flex;
@@ -240,4 +240,13 @@
 @media (max-width: 480px) {
   .detail-panel { width: 100vw; }
   .panel-price-int { font-size: 38px; }
+}
+
+.star {
+  font-size: 12px;
+  color: #ddd; /* empty stars (light grey) */
+}
+
+.star.filled {
+  color: #06291a; /* dark green */
 }

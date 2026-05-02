@@ -158,9 +158,9 @@ export default function CoverSidebar({
 
         <div className="sidebar-field">
           <label>Protect no claims?</label>
-          <div className="toggle-group">
+          <div className="protect-no-claims-group">
             <button
-              className={`toggle-btn ${protectNoClaims === "Yes" ? "active" : ""}`}
+              className={`sidebar-protect-no-claims ${protectNoClaims === "Yes" ? "active" : ""}`}
               onClick={() => {
                 setProtectNoClaims("Yes");
                 setDirty(true);
@@ -169,7 +169,7 @@ export default function CoverSidebar({
               Yes
             </button>
             <button
-              className={`toggle-btn ${protectNoClaims === "No" ? "active" : ""}`}
+              className={`sidebar-protect-no-claims ${protectNoClaims === "No" ? "active" : ""}`}
               onClick={() => {
                 setProtectNoClaims("No");
                 setDirty(true);
@@ -252,7 +252,30 @@ export default function CoverSidebar({
               setDirty(true);
             }}
           >
-            <span className="addon-icon">{addons[name] ? "✓" : "+"}</span>
+            <span className="addon-icon">
+              {addons[name] ? (
+                // ✔ Tick
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M20 6L9 17l-5-5"
+                    stroke="currentColor"
+                    strokeWidth="4.5"
+                    // strokeLinecap="round"
+                    // strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                // ➕ Plus
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 5v14M5 12h14"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    // strokeLinecap="round"
+                  />
+                </svg>
+              )}
+            </span>
             {name}
           </button>
         ))}

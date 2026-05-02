@@ -1,6 +1,6 @@
-# Insure Today UK — Car Insurance Comparison
+# Go Compare — Car Insurance Comparison
 
-A full-stack MERN application replicating a car insurance comparison interface similar to GoCompare, branded as **Insure Today UK**.
+A full-stack MERN application replicating a car insurance comparison interface similar to GoCompare, branded as **Go Compare**.
 
 ---
 
@@ -38,15 +38,19 @@ insure-today-uk/
 ## 🚀 Local Setup
 
 ### 1. Start MongoDB (local terminal)
+
 ```bash
 mongod --dbpath /data/db
 ```
+
 Or if using a service:
+
 ```bash
 sudo systemctl start mongod
 ```
 
 ### 2. Install dependencies
+
 ```bash
 # Install server deps
 cd server
@@ -58,6 +62,7 @@ npm install
 ```
 
 ### 3. Configure environment
+
 ```bash
 # In /server, copy .env.example to .env
 cp .env.example .env
@@ -65,6 +70,7 @@ cp .env.example .env
 ```
 
 ### 4. Start development
+
 ```bash
 # Terminal 1 — backend
 cd server
@@ -83,6 +89,7 @@ API runs at: http://localhost:5000
 ## 🖼️ Adding Logos
 
 Place insurer logo images in `client/public/logos/`:
+
 - `allianz.png`
 - `admiral.png`
 - `elephant.png`
@@ -90,6 +97,7 @@ Place insurer logo images in `client/public/logos/`:
 - `insure-today-logo.png` — Your main brand logo (shown in navbar)
 
 Place other images in `client/public/images/`:
+
 - `hero-car.png` — Hero section car image
 - `mascot.png` — Reward section mascot (the green gecko-like figure)
 
@@ -100,18 +108,21 @@ The `<img>` tags have `onError` fallbacks so the UI won't break if images are mi
 ## ☁️ Deployment
 
 ### Frontend — Netlify
+
 1. Build: `cd client && npm run build`
 2. Deploy the `client/build` folder to Netlify
 3. The `public/_redirects` file handles SPA routing automatically
 4. Set environment variable: `REACT_APP_API_URL=https://your-api-url.com`
 
 ### Frontend — Vercel
+
 1. Set root directory to `client`
 2. Build command: `npm run build`
 3. Output directory: `build`
 4. The `vercel.json` handles SPA routing
 
 ### Backend — Vercel / Railway / Render
+
 - For Vercel: deploy the `server` folder, set env vars in dashboard
 - For Railway/Render: connect repo, point to `server/`, set:
   - `MONGO_URI=mongodb+srv://...` (use MongoDB Atlas for production)
@@ -119,6 +130,7 @@ The `<img>` tags have `onError` fallbacks so the UI won't break if images are mi
   - `CLIENT_URL=https://your-frontend-url.com`
 
 ### Backend — Note on MongoDB
+
 - **Local dev**: Uses `mongodb://127.0.0.1:27017/insure-today-uk` (no Atlas needed)
 - **Production**: Use MongoDB Atlas free tier and update `MONGO_URI`
 
@@ -136,6 +148,7 @@ The `<img>` tags have `onError` fallbacks so the UI won't break if images are mi
 ## 📱 Mobile Responsive
 
 The UI is fully responsive:
+
 - Desktop: Left sidebar + results grid side by side
 - Mobile: Top edit/cover buttons open a slide-in drawer
 - Quote detail panel: Full-width on mobile, 420px panel on desktop
@@ -146,6 +159,7 @@ The UI is fully responsive:
 ## 🎨 Design
 
 Colors match GoCompare's palette:
+
 - Dark green: `#1a4731`
 - Main green: `#1e5c3a`
 - Cream background: `#f5f0e8`

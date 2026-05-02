@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./QuoteDetailPanel.css";
+import { useAuth } from "../context/AuthContext";
 
 function Stars({ count, total = 5 }) {
   return (
@@ -17,30 +18,41 @@ function CoverItem({ label, included }) {
   return (
     <div className={`cover-item ${included ? "cover-yes" : "cover-no"}`}>
       {included ? (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          style={{ color: "#07291b" }}
+        >
           <path
             d="M20 6L9 17l-5-5"
             stroke="currentColor"
-            strokeWidth="3.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="5"
+            // strokeLinecap="round"
+            // strokeLinejoin="round"
           />
         </svg>
       ) : (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          style={{ color: "#aaa5a5" }}
+        >
           <path
-            d="M12 5v14M5 12h14"
+            d="M6 6L18 18M6 18L18 6"
             stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
+            strokeWidth="5"
           />
         </svg>
       )}
       <span>{label}</span>
       <svg
         className="expand-arrow"
-        width="14"
-        height="14"
+        width="18"
+        height="18"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -56,12 +68,12 @@ function AddonItem({ label }) {
   return (
     <div className="cover-item cover-addon">
       <svg
-        width="22"
-        height="22"
+        width="30"
+        height="30"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="3.5"
+        strokeWidth="5"
       >
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -84,6 +96,7 @@ function AddonItem({ label }) {
 
 export default function QuoteDetailPanel({ quote, onClose }) {
   // Close on Escape
+  const { user } = useAuth();
   useEffect(() => {
     const handler = (e) => {
       if (e.key === "Escape") onClose();
@@ -135,7 +148,7 @@ export default function QuoteDetailPanel({ quote, onClose }) {
             <div className="panel-price">
               <span className="panel-price-sym">£</span>
               <span className="panel-price-int">
-                {Math.floor(quote.annualPrice).toLocaleString()}
+                {Math.floor(quote.annualPrice)}
               </span>
               <span className="panel-price-dec">
                 .{(quote.annualPrice % 1).toFixed(2).slice(2)}
@@ -206,7 +219,9 @@ export default function QuoteDetailPanel({ quote, onClose }) {
             <div className="overview-grid">
               <div className="overview-row">
                 <span>Proposer name</span>
-                <strong>Steven Michael Taylor</strong>
+                <strong>
+                  {user ? `${user.firstName} ${user.lastName}` : "N/A"}
+                </strong>
               </div>
               <div className="overview-row">
                 <span>Additional driver(s)</span>
